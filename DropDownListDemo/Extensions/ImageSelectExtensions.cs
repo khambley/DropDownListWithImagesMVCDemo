@@ -177,7 +177,8 @@
 
             if (!string.IsNullOrEmpty(imagePath))
             {
-                builder.Attributes["title"] = BuildFullImagePath(imagePath, item.ImageFileName);
+                builder.Attributes["data-class"] = "ddlImage";
+                builder.Attributes["data-style"] = "background-image: url('" + BuildFullImagePath(imagePath, item.ImageFileName) + "');";
             }
 
             if (item.Selected)
