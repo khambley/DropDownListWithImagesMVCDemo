@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DropDownListDemo.Models.Contestant>
+@{
+    ViewBag.Title = "Contestant List | Home";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Contestant List</h2>
+        @Html.ActionLink("Add Contestant", "Create")
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>First Name: @item.FirstName</li>
+                <li>Last Name: @item.LastName</li>
+                <li>Age: @item.Age</li>
+                <li>Country of Origin: @item.Country.CountryName</li>
+                <hr />
+            }
+        </ul>
+        &apos;
+    </div>
+</div>
