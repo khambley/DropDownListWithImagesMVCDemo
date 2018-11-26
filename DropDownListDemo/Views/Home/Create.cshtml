@@ -80,7 +80,7 @@
             @Html.LabelFor(model => model.CountryId, "CountryId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.DropDownList("CountryId", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.DropDownListFor(m => m.CountryId, "../../Content/Images/", Model.AllCountries, new { id = "selectCountry" })
+                @Html.DropDownListFor(m => m.CountryId, "../../Content/Images/", Model.AllCountries, "--Select a Country--", new { id = "selectCountry" })
                 @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
             </div>
         </div>
