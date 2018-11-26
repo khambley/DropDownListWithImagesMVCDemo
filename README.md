@@ -16,12 +16,6 @@ if (!string.IsNullOrEmpty(imagePath))
         item.ImageFileName) + "');";
     }
 ```
-* I added the text "--Select an option--" at the top of the DropDownList as generic text with an empty Value and Selected = false.
-```
-// The display text on the first line in the dropdown KLH 11-25-18
-            listItemBuilder.AppendLine(ListItemToOption(new ImageSelectListItem() { 
-            Text = "--Select an option--", Value = String.Empty, Selected = false }));
-```
 ### Changes to the View (Create.cshtml)
 * I added the class "ddlImage" to my CSS so I can custom style the dropdown image and position it properly.
 ```
