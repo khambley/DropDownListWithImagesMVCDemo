@@ -111,8 +111,11 @@ Anyway, hope this helps and let me know any suggestions you might have! Thanks!
 
 Katherine
 Twitter - @superdesigngirl
+
 Facebook - /khambley
+
 Email - superdesigngirl@mac.com
+
 
          
 
