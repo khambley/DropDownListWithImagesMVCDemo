@@ -28,17 +28,23 @@ namespace DropDownListDemo.Controllers
 
         public ActionResult Create()
         {
-            //List<Country> countryList = _db.Countries.ToList();
-
-            //countryList.Insert(0, new Country { CountryId = 0, CountryName = "--Select Country--" });
             var reservationViewModel = new ContestantViewModel
             {
                 AllCountries = this.GetAllCountries()
             };
             
-            //ViewBag.CountryId = new SelectList(countryList, "CountryId", "CountryName");
-
             return View(reservationViewModel);
+        }
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "ContestantId,FirstName,LastName,Age,CountryId")] Contestant contestant)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Contestants.Add(contestant);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(contestant);
         }
         private IEnumerable<ImageSelectListItem> GetAllCountries()
         {

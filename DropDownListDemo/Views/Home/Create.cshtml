@@ -1,5 +1,43 @@
 ﻿@model DropDownListDemo.Models.ContestantViewModel
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(function () {
+        $.widget("custom.iconselectmenu", $.ui.selectmenu, {
+            _renderItem: function (ul, item) {
+                var li = $("<li>"),
+                    wrapper = $("<div>", { text: item.label });
 
+                if (item.disabled) {
+                    li.addClass("ui-state-disabled");
+                }
+
+                $("<span>", {
+                    style: item.element.attr("data-style"),
+                    "class": "ui-icon " + item.element.attr("data-class")
+                })
+                    .appendTo(wrapper);
+
+                return li.append(wrapper).appendTo(ul);
+            }
+        });
+
+        $("#selectCountry")
+            .iconselectmenu()
+            .iconselectmenu("menuWidget")
+            .addClass("ui-menu-icons ddlImage");
+    });
+</script>
+<style>
+    /* select with CSS custom images */
+    option.ddlImage {
+        background-repeat: no-repeat !important;
+        padding-left: 20px;
+    }
+
+    .ddlImage .ui-icon {
+        background-position: left top;
+    }
+</style>
 @{
     ViewBag.Title = "Create";
 }
@@ -62,10 +100,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-@*<script src="~/Scripts/jquery-1.9.0.min.js"></script>
-<script src="~/Scripts/msdropdown/jquery.dd.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $('#selectCountry').msDropdown();
-    })
-</script>*@
+

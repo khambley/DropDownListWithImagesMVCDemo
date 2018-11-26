@@ -177,7 +177,8 @@
 
             if (!string.IsNullOrEmpty(imagePath))
             {
-                builder.Attributes["title"] = BuildFullImagePath(imagePath, item.ImageFileName);
+                builder.Attributes["data-class"] = "ddlImage";
+                builder.Attributes["data-style"] = "background-image: url('" + BuildFullImagePath(imagePath, item.ImageFileName) + "');";
             }
 
             if (item.Selected)
@@ -240,6 +241,7 @@
 
                 List<ImageSelectListItem> newSelectList = new List<ImageSelectListItem>();
 
+                
                 foreach (ImageSelectListItem item in selectList)
                 {
                     item.Selected = (item.Value != null) ?
@@ -254,6 +256,9 @@
             {
                 listItemBuilder.AppendLine(ListItemToOption(new ImageSelectListItem() { Text = optionLabel, Value = String.Empty, Selected = false }));
             }
+
+            // The display text on the first line in the dropdown KLH 11-25-18
+            listItemBuilder.AppendLine(ListItemToOption(new ImageSelectListItem() { Text = "--Select an option--", Value = String.Empty, Selected = false }));
 
             listItemBuilder.AppendLine(ListItemToOption(selectList, imagePath));
 
