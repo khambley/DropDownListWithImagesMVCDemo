@@ -32,7 +32,7 @@ namespace DropDownListDemo.Controllers
             {
                 AllCountries = this.GetAllCountries()
             };
-
+            
             return View(reservationViewModel);
         }
         [HttpPost]
