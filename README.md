@@ -94,7 +94,16 @@ Contestant contestant)
 * Be sure to install the latest version of jQuery-ui.js and css as well as jQuery. I had to include the jQuery library at the top of my View in order for it to work but I'm sure you could use a document.ready function instead and it would work without it.
 * For JQuery UI documentation, examples, and the source code, view the official page [here](https://jqueryui.com/selectmenu/#custom_render)
 
+### Here is a screenshot of my implementation:
+I'm working on a live demo but I have to set up my web server again, so here is a screenshot for now.
 
+![DropDownList Image Screenshot](/images/screenshot1.png)
+
+### A few tips:
+* Be sure to add the two classes, **ImageSelectExtensions.cs** and **ImageSelectListItem.cs** to your project. 
+* I used AutoMapper like Jeff did, but updated it so it works with version 6.2. They changed the API so I had to change the calls to CreateMap and Mapper, see Global.asax.cs. I think the ImageSelectListItem with the IEnumerable implemenation is a little clunky especially with having the separate classes, ImageSelectListItem and Country. Why can't the ImageSelectListItem property just be included in the Country model? Maybe so it is reusable? I think there is an easier way, I'd like to refactor the code so I can just use a list with the DropDownList HTML helper instead of an IEnumerable. And I don't see why you can't just add the List to a ViewModel and retrieve it as a list from the database. 
+
+Anyway, hope this helps and let me know any suggestions you might have! Thanks!
 
          
 
